@@ -398,6 +398,7 @@ def query_log():
 
 
 if __name__ == "__main__":
+    port = int(os.getenv("PORT", "5000"))
     print("=" * 60)
     print("PG Management API")
     print("=" * 60)
@@ -405,6 +406,6 @@ if __name__ == "__main__":
         f"MySQL: {DB_CONFIG['database']} @ "
         f"{DB_CONFIG['host']}:{DB_CONFIG['port']} as {DB_CONFIG['user']}"
     )
-    print("API: http://localhost:5000")
+    print(f"API port: {port}")
     print("=" * 60)
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=port, debug=True)
